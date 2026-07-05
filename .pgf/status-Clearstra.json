@@ -1,24 +1,33 @@
 {
   "project": "Clearstra",
   "version": "0.1",
-  "phase": "design",
+  "phase": "execute",
   "workplan": ".pgf/WORKPLAN-Clearstra.md",
   "design": ".pgf/DESIGN-Clearstra.md",
-  "decomposed_designs": [".pgf/DESIGN-ClearstraMarkets.md"],
+  "decomposed_designs": [
+    ".pgf/DESIGN-ClearstraMarkets.md"
+  ],
   "pgxf_index": ".pgxf/INDEX-Clearstra.json",
-  "summary": {"total": 32, "done": 0, "in-progress": 0, "designing": 31, "decomposed": 1, "blocked": 0},
+  "summary": {
+    "total": 32,
+    "done": 10,
+    "in-progress": 1,
+    "designing": 20,
+    "decomposed": 1,
+    "blocked": 0
+  },
   "nodes": {
-    "Clearstra": "designing",
-    "ClearstraCore": "designing",
-    "ClearstraCore.Order": "designing",
-    "ClearstraCore.Pricing": "designing",
-    "ClearstraCore.Clearing": "designing",
-    "ClearstraCore.Settlement": "designing",
-    "ClearstraCore.Shock": "designing",
-    "ClearstraCore.Ledger": "designing",
-    "ClearstraCore.Fingerprint": "designing",
-    "ClearstraCore.Determinism": "designing",
-    "ClearstraCore.AttestraBridge": "designing",
+    "Clearstra": "in-progress",
+    "ClearstraCore": "done",
+    "ClearstraCore.Order": "done",
+    "ClearstraCore.Pricing": "done",
+    "ClearstraCore.Clearing": "done",
+    "ClearstraCore.Settlement": "done",
+    "ClearstraCore.Shock": "done",
+    "ClearstraCore.Ledger": "done",
+    "ClearstraCore.Fingerprint": "done",
+    "ClearstraCore.Determinism": "done",
+    "ClearstraCore.AttestraBridge": "done",
     "MarketContract": "designing",
     "MarketContract.MarketManifest": "designing",
     "MarketContract.MarketAPI": "designing",
@@ -45,11 +54,23 @@
   "design_notes": {
     "lineage": "HELIX (clearing/market cluster) -> Clearstra (deterministic clearing exchange platform). Independent git repo under D:/HELIX/Clearstra.",
     "thesis": "One deterministic clearing kernel (price -> clear -> settle -> rehearse + clearing ledger) + N market packs. Each HELIX clearing project projects as a market via price/priority/payoff/shock_model.",
-    "grounded_in_real_code": ["CryoFutures.price_future/settle_contract (price+settle)", "MineralShock.price_reserve_right/price_refusal_option/simulate_shock (price+clear+rehearse)"],
+    "grounded_in_real_code": [
+      "CryoFutures.price_future/settle_contract (price+settle)",
+      "MineralShock.price_reserve_right/price_refusal_option/simulate_shock (price+clear+rehearse)"
+    ],
     "first_wave_markets": 10,
     "reference_market": "CryoFuturesMarket (CryoFutures parity is the correctness anchor for price/settle)",
     "attestra_anchor": "ReserveFlowMarket (clear() output -> AttestraBridge -> Attestra reserve-flow pack verdict=valid)",
     "complementarity": "Clearstra COMPUTES allocations/settlements; Attestra ATTESTS them. clear() invariants (conservation/no_conflict/priority) are exactly Attestra's clearing verification predicates -> provable composition. Attestra ADR declared clearing computation out-of-scope; Clearstra is that half."
   },
-  "next": "plan complete -> execute Phase 1 (ClearstraCore kernel, stdlib-only). Reference D:/HELIX/CryoFutures + D:/HELIX/MineralShock for parity; D:/HELIX/Attestra schemas/packet-clearing.schema.json for the bridge."
+  "next": "Phase 2 (MarketContract: manifest/API/loader/registry) -> Phase 3 (markets, CryoFuturesMarket parity + ReserveFlowMarket anchor)",
+  "verify": {
+    "phase1_kernel": "clearstra_core implemented (order/pricing/clearing/settlement/shock/ledger/fingerprint/determinism/attestra_bridge)",
+    "unittests": "python -m unittest discover -s tests: Ran 21 tests OK",
+    "determinism": "check_tree -> clean=True, 11 files (0 clock/network/random; math allowed)",
+    "pricing_parity": "time_factor(365)=1.0; CryoFutures premium composition (100*0.5*1)=50; scarcity_premium(0.8,4)=0.2; option_premium(10,100,0.5)=50 (matches CryoFutures/MineralShock real code)",
+    "clear_correct_by_construction": "clearing_invariants(clear(...)).all_hold True for supply in {0,30,60,100,200}; deterministic tie-break by party_id; conservation never exceeds supply",
+    "zero_sum_settlement": "settle enforces buyer_net+seller_net==0 (raises otherwise)",
+    "attestra_composition_PROVEN": "clear() -> to_attestra_packet() -> REAL Attestra reserve-flow pack -> verdict=valid (conservation/no_conflict/priority_order/clearing_integrity all valid). Cross-repo smoke against D:/HELIX/Attestra; Clearstra remains standalone (no runtime dependency)."
+  }
 }
