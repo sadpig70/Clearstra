@@ -1,7 +1,7 @@
 {
   "project": "Clearstra",
   "version": "0.1",
-  "phase": "execute",
+  "phase": "verify",
   "workplan": ".pgf/WORKPLAN-Clearstra.md",
   "design": ".pgf/DESIGN-Clearstra.md",
   "decomposed_designs": [
@@ -10,14 +10,14 @@
   "pgxf_index": ".pgxf/INDEX-Clearstra.json",
   "summary": {
     "total": 32,
-    "done": 29,
-    "in-progress": 1,
-    "designing": 1,
+    "done": 31,
+    "in-progress": 0,
+    "designing": 0,
     "decomposed": 1,
     "blocked": 0
   },
   "nodes": {
-    "Clearstra": "in-progress",
+    "Clearstra": "done",
     "ClearstraCore": "done",
     "ClearstraCore.Order": "done",
     "ClearstraCore.Pricing": "done",
@@ -48,7 +48,7 @@
     "CLI": "done",
     "Schemas": "done",
     "Docs": "done",
-    "Tests": "designing"
+    "Tests": "done"
   },
   "determinism_boundary": "core+market-formulas = pure stdlib (now injected); hash excludes now/*_at meta; market internal forecast/price-feed = meta-layer outside Clearstra boundary (produces the order)",
   "design_notes": {
@@ -63,7 +63,7 @@
     "attestra_anchor": "ReserveFlowMarket (clear() output -> AttestraBridge -> Attestra reserve-flow pack verdict=valid)",
     "complementarity": "Clearstra COMPUTES allocations/settlements; Attestra ATTESTS them. clear() invariants (conservation/no_conflict/priority) are exactly Attestra's clearing verification predicates -> provable composition. Attestra ADR declared clearing computation out-of-scope; Clearstra is that half."
   },
-  "next": "Phase 5 (Tests consolidation + final 3-perspective VERIFY)",
+  "next": "Clearstra v0.1 implementation complete. Remaining: publish github.com/sadpig70/Clearstra (user-gated).",
   "verify": {
     "phase1_kernel": "clearstra_core implemented (order/pricing/clearing/settlement/shock/ledger/fingerprint/determinism/attestra_bridge)",
     "unittests": "python -m unittest discover -s tests: Ran 21 tests OK",
@@ -74,6 +74,16 @@
     "attestra_composition_PROVEN": "clear() -> to_attestra_packet() -> REAL Attestra reserve-flow pack -> verdict=valid (conservation/no_conflict/priority_order/clearing_integrity all valid). Cross-repo smoke against D:/HELIX/Attestra; Clearstra remains standalone (no runtime dependency).",
     "phase2_market_contract": "clearstra_markets/{_base,loader}: MANIFEST validation (name/version/stages/order_schema/source_project), stage->fn map (price->price, clear->priority, settle->payoff, rehearse->shock_model), fingerprint dedup, run_stage dispatches all 4 stages through kernel. 33 unittests OK (synthetic 4-stage market); zero kernel change; determinism clean (13 files).",
     "phase3_markets": "10 markets loaded (0 dropped, 0 errors), zero kernel change. CryoFutures PARITY OK (premium 50, buyer_net 50 == real CryoFutures.price_future/settle_contract). ReserveFlow ANCHOR COMPOSITION PROVEN: clear() -> to_attestra_packet -> REAL Attestra reserve-flow verdict=valid (4/4 checks). quadratic favors many-small; exclusive-grant highest-bidder; cold-capacity highest-valuation. 45 unittests OK; determinism clean (23 files).",
-    "phase4_interface": "clearstra_run.py (ClearRun price->clear->settle->rehearse->ledger->bridge); 15 schemas (10 order + 5 kernel); loader enforces order_schema existence (0 errors); cli.py (market/run/stage/emit-packet/verify/determinism); docs/{ARCHITECTURE,MARKET-CONTRACT,DETERMINISM}.md. 52 unittests OK; determinism clean (23 files). CLI run reserve-flow -> 3 ledger records chain valid; emit-packet -> REAL Attestra verdict=valid."
+    "phase4_interface": "clearstra_run.py (ClearRun price->clear->settle->rehearse->ledger->bridge); 15 schemas (10 order + 5 kernel); loader enforces order_schema existence (0 errors); cli.py (market/run/stage/emit-packet/verify/determinism); docs/{ARCHITECTURE,MARKET-CONTRACT,DETERMINISM}.md. 52 unittests OK; determinism clean (23 files). CLI run reserve-flow -> 3 ledger records chain valid; emit-packet -> REAL Attestra verdict=valid.",
+    "phase5_final": {
+      "unittests": "python -W error::ResourceWarning -m unittest discover -s tests: Ran 52 OK (warning-clean)",
+      "determinism": "clean=True, 23 files",
+      "registry": "10 markets, 0 dropped, 0 errors",
+      "cryofutures_parity": "True (price/settle == real CryoFutures)",
+      "reserveflow_attestra": "verdict=valid (real Attestra reserve-flow pack)",
+      "acceptance": "SingleSourceKernel / MarketContractStable / ClearCorrectByConstruction / AttestraComposable / ZeroSumSettlement / DeterministicCore / Federated / Tested — all met",
+      "quality": "clear/settle/shock/ledger defined once in clearstra_core; markets contribute formulas only (zero kernel duplication); order_schema enforced",
+      "architecture": "federate preserved (each market tagged source_project github.com/sadpig70/*); kernel has zero market imports; Attestra composition proven with NO runtime dependency on Attestra"
+    }
   }
 }

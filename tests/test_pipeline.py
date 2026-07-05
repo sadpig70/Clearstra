@@ -45,8 +45,10 @@ class TestPipeline(unittest.TestCase):
             clear_run(m, market_inputs_from_samples(m), now="AAA", ledger_path=l1)
             clear_run(m, market_inputs_from_samples(m), now="ZZZ", ledger_path=l2)
             import json
-            h1 = [json.loads(x)["record_hash"] for x in open(l1, encoding="utf-8")]
-            h2 = [json.loads(x)["record_hash"] for x in open(l2, encoding="utf-8")]
+            with open(l1, encoding="utf-8") as f:
+                h1 = [json.loads(x)["record_hash"] for x in f]
+            with open(l2, encoding="utf-8") as f:
+                h2 = [json.loads(x)["record_hash"] for x in f]
             self.assertEqual(h1, h2)  # now excluded from record_hash
 
 
