@@ -1,3 +1,5 @@
+![Clearstra](assets/Clearstra_hero.png)
+
 # Clearstra
 
 > **희소·취약·임계 자산의 권리/용량/선물을 결정론적으로 청산하는 거래소 플랫폼.**
