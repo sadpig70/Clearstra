@@ -214,7 +214,7 @@
     },
     "MarketContract": {
       "node": "MarketContract",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 65,
       "depth": 1,
@@ -236,7 +236,7 @@
     },
     "MarketManifest": {
       "node": "MarketManifest",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 66,
       "depth": 2,
@@ -253,7 +253,7 @@
     },
     "MarketAPI": {
       "node": "MarketAPI",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 67,
       "depth": 2,
@@ -272,7 +272,7 @@
     },
     "MarketLoader": {
       "node": "MarketLoader",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 68,
       "depth": 2,
@@ -291,7 +291,7 @@
     },
     "MarketRegistry": {
       "node": "MarketRegistry",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 69,
       "depth": 2,
@@ -577,9 +577,9 @@
   },
   "summary": {
     "total": 32,
-    "done": 10,
+    "done": 15,
     "in-progress": 1,
-    "designing": 20,
+    "designing": 15,
     "decomposed": 1,
     "blocked": 0
   },
