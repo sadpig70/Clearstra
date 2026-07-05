@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Attestra clearing packet (bridge output)",
+  "type": "object",
+  "required": [
+    "packet_id",
+    "clearing"
+  ],
+  "properties": {
+    "packet_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "clearing": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "clearing",
+      "type": "object",
+      "required": [
+        "supply",
+        "allocations"
+      ],
+      "properties": {
+        "supply": {
+          "type": "number",
+          "minimum": 0
+        },
+        "allocations": {
+          "type": "array"
+        },
+        "requests": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

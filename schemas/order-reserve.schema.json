@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ReserveFlow order",
+  "type": "object",
+  "required": [
+    "stockpile_tonnes",
+    "criticality"
+  ],
+  "properties": {
+    "stockpile_tonnes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "criticality": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "daily_demand": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

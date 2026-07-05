@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Clearing ledger record",
+  "type": "object",
+  "required": [
+    "index",
+    "market",
+    "kind",
+    "result_hash",
+    "prev_hash",
+    "record_hash"
+  ],
+  "properties": {
+    "index": {
+      "type": "integer"
+    },
+    "market": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "clear",
+        "settle",
+        "rehearse",
+        "price"
+      ]
+    },
+    "subject": {
+      "type": "string"
+    },
+    "result_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "prev_hash": {
+      "type": "string"
+    },
+    "record_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "recorded_at": {
+      "type": "string"
+    }
+  }
+}

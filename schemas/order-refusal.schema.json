@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RefusalOption order",
+  "type": "object",
+  "required": [
+    "refusal_capacity_tonnes",
+    "mineral_value",
+    "threat_level"
+  ],
+  "properties": {
+    "refusal_capacity_tonnes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "mineral_value": {
+      "type": "number",
+      "minimum": 0
+    },
+    "threat_level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

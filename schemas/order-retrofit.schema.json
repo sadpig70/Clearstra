@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RetrofitReceivable order",
+  "type": "object",
+  "required": [
+    "upgrade_savings",
+    "term_years"
+  ],
+  "properties": {
+    "upgrade_savings": {
+      "type": "number",
+      "minimum": 0
+    },
+    "term_years": {
+      "type": "number",
+      "minimum": 0
+    },
+    "discount_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Market manifest",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "stages",
+    "order_schema",
+    "source_project"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "price",
+          "clear",
+          "settle",
+          "rehearse"
+        ]
+      },
+      "minItems": 1
+    },
+    "order_schema": {
+      "type": "string"
+    },
+    "source_project": {
+      "type": "string"
+    }
+  }
+}

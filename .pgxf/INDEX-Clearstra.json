@@ -490,7 +490,7 @@
     },
     "ClearRun": {
       "node": "ClearRun",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 71,
       "depth": 1,
@@ -510,7 +510,7 @@
     },
     "CLI": {
       "node": "CLI",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 72,
       "depth": 1,
@@ -528,7 +528,7 @@
     },
     "Schemas": {
       "node": "Schemas",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 73,
       "depth": 1,
@@ -543,7 +543,7 @@
     },
     "Docs": {
       "node": "Docs",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-Clearstra.md",
       "line": 74,
       "depth": 1,
@@ -577,9 +577,9 @@
   },
   "summary": {
     "total": 32,
-    "done": 25,
+    "done": 29,
     "in-progress": 1,
-    "designing": 5,
+    "designing": 1,
     "decomposed": 1,
     "blocked": 0
   },

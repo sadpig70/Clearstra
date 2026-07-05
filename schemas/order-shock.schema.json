@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ShockRehearsal item",
+  "type": "object",
+  "required": [
+    "stockpile_tonnes",
+    "daily_demand"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "stockpile_tonnes": {
+      "type": "number",
+      "minimum": 0
+    },
+    "daily_demand": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

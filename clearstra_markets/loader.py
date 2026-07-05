@@ -8,6 +8,7 @@ clearing/settlement/shock/ledger stay in clearstra_core.
 """
 
 import importlib
+import os
 import pkgutil
 
 from clearstra_core.fingerprint import fingerprint_market
@@ -16,6 +17,7 @@ from clearstra_core.settlement import settle
 from clearstra_core.shock import rehearse
 
 _RESERVED = {"loader", "_base"}
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _REQUIRED_MANIFEST = ("name", "version", "stages", "order_schema", "source_project")
 STAGES = ("price", "clear", "settle", "rehearse")
 STAGE_FN = {"price": "price", "clear": "priority", "settle": "payoff", "rehearse": "shock_model"}
@@ -65,6 +67,10 @@ def load_markets(package="clearstra_markets"):
         manifest, fns, err = validate_module(mod, mod_name)
         if err:
             registry["errors"].append(err)
+            continue
+        if not os.path.exists(os.path.join(_REPO_ROOT, manifest["order_schema"])):
+            registry["errors"].append(
+                f"{manifest['name']}: declared order_schema not found: {manifest['order_schema']}")
             continue
         fp = fingerprint_market(manifest)
         if fp in seen_fp:

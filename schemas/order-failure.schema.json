@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FailureFutures order",
+  "type": "object",
+  "required": [
+    "asset_value",
+    "fragility",
+    "days_to_expiry"
+  ],
+  "properties": {
+    "asset_value": {
+      "type": "number",
+      "minimum": 0
+    },
+    "fragility": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "days_to_expiry": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

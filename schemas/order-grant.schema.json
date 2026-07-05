@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExclusiveGrant order (bid)",
+  "type": "object",
+  "required": [
+    "valuation"
+  ],
+  "properties": {
+    "valuation": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}
