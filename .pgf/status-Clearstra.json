@@ -63,7 +63,7 @@
     "attestra_anchor": "ReserveFlowMarket (clear() output -> AttestraBridge -> Attestra reserve-flow pack verdict=valid)",
     "complementarity": "Clearstra COMPUTES allocations/settlements; Attestra ATTESTS them. clear() invariants (conservation/no_conflict/priority) are exactly Attestra's clearing verification predicates -> provable composition. Attestra ADR declared clearing computation out-of-scope; Clearstra is that half."
   },
-  "next": "Clearstra v0.1 implementation complete. Remaining: publish github.com/sadpig70/Clearstra (user-gated).",
+  "next": "v0.1.0 released; Clearstra + Attestra 2-platform ecosystem live. Future: CI, second-wave markets, or platform C (resource routing).",
   "verify": {
     "phase1_kernel": "clearstra_core implemented (order/pricing/clearing/settlement/shock/ledger/fingerprint/determinism/attestra_bridge)",
     "unittests": "python -m unittest discover -s tests: Ran 21 tests OK",
@@ -85,5 +85,6 @@
       "quality": "clear/settle/shock/ledger defined once in clearstra_core; markets contribute formulas only (zero kernel duplication); order_schema enforced",
       "architecture": "federate preserved (each market tagged source_project github.com/sadpig70/*); kernel has zero market imports; Attestra composition proven with NO runtime dependency on Attestra"
     }
-  }
+  },
+  "published": "https://github.com/sadpig70/Clearstra (PUBLIC, main, tag v0.1.0) — 2026-07-05"
 }
