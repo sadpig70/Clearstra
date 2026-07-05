@@ -107,11 +107,12 @@ class TestRunStage(unittest.TestCase):
 
 
 class TestRegistry(unittest.TestCase):
-    def test_empty_package_loads_cleanly(self):
-        reg = load_markets()  # no market modules yet (Phase 3) — contract only
-        self.assertEqual(reg["markets"], {})
+    def test_package_loads_cleanly(self):
+        reg = load_markets()  # real markets exist from Phase 3; contract must load them cleanly
         self.assertEqual(reg["errors"], [])
         self.assertEqual(reg["dropped"], [])
+        for m in reg["markets"].values():  # every loaded market satisfies the contract
+            self.assertTrue(m["stages"] and "fns" in m)
 
     def test_get_market_unknown_raises(self):
         with self.assertRaises(KeyError):

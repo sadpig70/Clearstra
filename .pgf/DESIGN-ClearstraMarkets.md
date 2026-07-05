@@ -11,17 +11,17 @@
 ## 1. Gantree — 1차 마켓 (10종)
 
 ```
-ClearstraMarkets // 1차 마켓 팩 (clearing/market cluster) (designing) @v:0.1
-    CryoFuturesMarket // 냉각용량 실패보호 선물 (price+settle) — 레퍼런스 (designing) #reference
-    ColdCapacityMarket // 밀리켈빈 냉각용량 양면 청산 (price+clear) (designing)
-    FailureFuturesMarket // 취약도→선물 발행 (price+settle) (designing)
-    ReserveFlowMarket // 전략비축 flow-rights 청산 (price+clear+rehearse) — Attestra 앵커 (designing) #anchor
-    RefusalOptionMarket // 거부용량 옵션 프리미엄 (price) (designing)
-    ExclusiveGrantMarket // 상호배타 권리풀 충돌없는 청산 (clear) (designing)
-    QuadraticCarbonMarket // 이차 매칭풀 탄소자금 배분 (clear) (designing)
-    BuyBlocMarket // 수요측 연합 집계 청산 (price+clear) (designing)
-    ShockRehearsalMarket // 배분권 쇼크 시나리오 리허설 (rehearse) (designing)
-    RetrofitReceivableMarket // 브라운필드 개보수 채권화 정산 (price+settle) (designing)
+ClearstraMarkets // 1차 마켓 팩 (clearing/market cluster) (done) @v:0.1
+    CryoFuturesMarket // 냉각용량 실패보호 선물 (price+settle) — 레퍼런스 (done) #reference
+    ColdCapacityMarket // 밀리켈빈 냉각용량 양면 청산 (price+clear) (done)
+    FailureFuturesMarket // 취약도→선물 발행 (price+settle) (done)
+    ReserveFlowMarket // 전략비축 flow-rights 청산 (price+clear+rehearse) — Attestra 앵커 (done) #anchor
+    RefusalOptionMarket // 거부용량 옵션 프리미엄 (price) (done)
+    ExclusiveGrantMarket // 상호배타 권리풀 충돌없는 청산 (clear) (done)
+    QuadraticCarbonMarket // 이차 매칭풀 탄소자금 배분 (clear) (done)
+    BuyBlocMarket // 수요측 연합 집계 청산 (price+clear) (done)
+    ShockRehearsalMarket // 배분권 쇼크 시나리오 리허설 (rehearse) (done)
+    RetrofitReceivableMarket // 브라운필드 개보수 채권화 정산 (price+settle) (done)
 ```
 
 > depth ≤ 2 유지 — 각 마켓의 stages + 공식은 노드 아래 간략 PPR(`#`)로. 커널 계약이
@@ -34,7 +34,7 @@ ClearstraMarkets // 1차 마켓 팩 (clearing/market cluster) (designing) @v:0.1
 ### CryoFuturesMarket — 레퍼런스 (source: CryoFutures = ColdMkh + FailureFutures) [실코드]
 
 ```
-CryoFuturesMarket // 냉각용량 실패보호 선물 (designing) #reference
+CryoFuturesMarket // 냉각용량 실패보호 선물 (done) #reference
     # source_project: github.com/sadpig70/CryoFutures
     # stages: price, settle
     # price:  premium = payout_amount * failure_prob * time_factor(days_to_expiry)   [실코드 검증]
@@ -47,7 +47,7 @@ CryoFuturesMarket // 냉각용량 실패보호 선물 (designing) #reference
 ### ColdCapacityMarket (source: ColdMkh)
 
 ```
-ColdCapacityMarket // 밀리켈빈 냉각용량 양면 청산 (designing)
+ColdCapacityMarket // 밀리켈빈 냉각용량 양면 청산 (done)
     # source_project: github.com/sadpig70/ColdMkh
     # stages: price, clear
     # price:    capacity_price = mk_capacity * demand_ratio (양면 수급 균형가)
@@ -58,7 +58,7 @@ ColdCapacityMarket // 밀리켈빈 냉각용량 양면 청산 (designing)
 ### FailureFuturesMarket (source: FailureFutures)
 
 ```
-FailureFuturesMarket // 취약도→선물 발행 (designing)
+FailureFuturesMarket // 취약도→선물 발행 (done)
     # source_project: github.com/sadpig70/FailureFutures
     # stages: price, settle
     # price:  가장 취약한(실패확률 높은) 자산이 가장 많은 선물 발행 → premium ∝ fragility * time_factor
@@ -68,7 +68,7 @@ FailureFuturesMarket // 취약도→선물 발행 (designing)
 ### ReserveFlowMarket — Attestra 앵커 (source: ReserveFlow / MineralShock reserve) [실코드]
 
 ```
-ReserveFlowMarket // 전략비축 flow-rights 청산 (designing) #anchor
+ReserveFlowMarket // 전략비축 flow-rights 청산 (done) #anchor
     # source_project: github.com/sadpig70/ReserveFlow
     # stages: price, clear, rehearse
     # price:    scarcity_premium = criticality / max(coverage_days,1)                 [실코드]
@@ -82,7 +82,7 @@ ReserveFlowMarket // 전략비축 flow-rights 청산 (designing) #anchor
 ### RefusalOptionMarket (source: RefusalOption / MineralShock refusal) [실코드]
 
 ```
-RefusalOptionMarket // 거부용량 옵션 프리미엄 (designing)
+RefusalOptionMarket // 거부용량 옵션 프리미엄 (done)
     # source_project: github.com/sadpig70/RefusalOption
     # stages: price
     # price: option_premium = refusal_capacity_tonnes * mineral_value * threat_level * 0.1   [실코드]
@@ -91,7 +91,7 @@ RefusalOptionMarket // 거부용량 옵션 프리미엄 (designing)
 ### ExclusiveGrantMarket (source: ExclusiveGrantWarrant)
 
 ```
-ExclusiveGrantMarket // 상호배타 권리풀 충돌없는 청산 (designing)
+ExclusiveGrantMarket // 상호배타 권리풀 충돌없는 청산 (done)
     # source_project: github.com/sadpig70/ExclusiveGrantWarrant
     # stages: clear
     # priority: bid valuation; clear는 상호배타 풀 제약(같은 권리 중복 배분 금지)
@@ -101,7 +101,7 @@ ExclusiveGrantMarket // 상호배타 권리풀 충돌없는 청산 (designing)
 ### QuadraticCarbonMarket (source: QuadraticCarbonFund)
 
 ```
-QuadraticCarbonMarket // 이차 매칭풀 탄소자금 배분 (designing)
+QuadraticCarbonMarket // 이차 매칭풀 탄소자금 배분 (done)
     # source_project: github.com/sadpig70/QuadraticCarbonFund
     # stages: clear
     # priority: quadratic funding weight = (Σ√contribution)^2  (다수 소액 기여 우대)
@@ -111,7 +111,7 @@ QuadraticCarbonMarket // 이차 매칭풀 탄소자금 배분 (designing)
 ### BuyBlocMarket (source: BuyBloc)
 
 ```
-BuyBlocMarket // 수요측 연합 집계 청산 (designing)
+BuyBlocMarket // 수요측 연합 집계 청산 (done)
     # source_project: github.com/sadpig70/BuyBloc
     # stages: price, clear
     # price:    bloc_price = Σ member_volume 로 협상력 반영 할인가
@@ -121,7 +121,7 @@ BuyBlocMarket // 수요측 연합 집계 청산 (designing)
 ### ShockRehearsalMarket (source: ShockRehearsal / MineralShock shock) [실코드]
 
 ```
-ShockRehearsalMarket // 배분권 쇼크 시나리오 리허설 (designing)
+ShockRehearsalMarket // 배분권 쇼크 시나리오 리허설 (done)
     # source_project: github.com/sadpig70/ShockRehearsal
     # stages: rehearse
     # shock_model: demand_spike/supply_disruption 적용 → effective_stockpile, coverage_days, shortfall  [실코드]
@@ -131,7 +131,7 @@ ShockRehearsalMarket // 배분권 쇼크 시나리오 리허설 (designing)
 ### RetrofitReceivableMarket (source: RRE)
 
 ```
-RetrofitReceivableMarket // 브라운필드 개보수 채권화 정산 (designing)
+RetrofitReceivableMarket // 브라운필드 개보수 채권화 정산 (done)
     # source_project: github.com/sadpig70/RRE (Retrofit Receivable Exchange)
     # stages: price, settle
     # price:  receivable_value = upgrade_savings * discount_factor(term)

@@ -336,7 +336,7 @@
     },
     "CryoFuturesMarket": {
       "node": "CryoFuturesMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 15,
       "depth": 2,
@@ -353,7 +353,7 @@
     },
     "ColdCapacityMarket": {
       "node": "ColdCapacityMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 16,
       "depth": 2,
@@ -368,7 +368,7 @@
     },
     "FailureFuturesMarket": {
       "node": "FailureFuturesMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 17,
       "depth": 2,
@@ -383,7 +383,7 @@
     },
     "ReserveFlowMarket": {
       "node": "ReserveFlowMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 18,
       "depth": 2,
@@ -400,7 +400,7 @@
     },
     "RefusalOptionMarket": {
       "node": "RefusalOptionMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 19,
       "depth": 2,
@@ -415,7 +415,7 @@
     },
     "ExclusiveGrantMarket": {
       "node": "ExclusiveGrantMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 20,
       "depth": 2,
@@ -430,7 +430,7 @@
     },
     "QuadraticCarbonMarket": {
       "node": "QuadraticCarbonMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 21,
       "depth": 2,
@@ -445,7 +445,7 @@
     },
     "BuyBlocMarket": {
       "node": "BuyBlocMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 22,
       "depth": 2,
@@ -460,7 +460,7 @@
     },
     "ShockRehearsalMarket": {
       "node": "ShockRehearsalMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 23,
       "depth": 2,
@@ -475,7 +475,7 @@
     },
     "RetrofitReceivableMarket": {
       "node": "RetrofitReceivableMarket",
-      "status": "designing",
+      "status": "done",
       "file": ".pgf/DESIGN-ClearstraMarkets.md",
       "line": 24,
       "depth": 2,
@@ -577,9 +577,9 @@
   },
   "summary": {
     "total": 32,
-    "done": 15,
+    "done": 25,
     "in-progress": 1,
-    "designing": 15,
+    "designing": 5,
     "decomposed": 1,
     "blocked": 0
   },
