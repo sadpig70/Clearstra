@@ -80,6 +80,22 @@ machine임을 실코드로 판정해 여기로 라우팅했다(원본과 parity 
   hash 입력에서 `now`/`*_at` 제외 → 시간 무관 재현. 청산·정산·쇼크는 전부 결정론 알고리즘.
 - **시장 예측·시세 피드 = 메타층** — Clearstra 경계 밖(주문을 *생산*).
 
+## 빠른 시작
+
+```bash
+# 마켓 레지스트리 (11 마켓)
+python cli.py market list
+
+# 한 스테이지 실행 (입력 생략 시 마켓 샘플 사용)
+python cli.py stage --market cryo-futures --stage price     # -> {"premium": 50.0, "future_price": 50.0, ...}
+
+# clear -> Attestra 검증 packet 방출 (조합 데모)
+python cli.py emit-packet --market reserve-flow
+
+# 결정론 경계 검사
+python cli.py determinism                                   # -> {"clean": true, ...}
+```
+
 ## 라이선스
 
 MIT License © 2026 sadpig70 (Jung Wook Yang)
