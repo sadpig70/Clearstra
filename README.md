@@ -1,5 +1,7 @@
 ![Clearstra](assets/Clearstra_hero.png)
 
+[![CI](https://github.com/sadpig70/Clearstra/actions/workflows/ci.yml/badge.svg)](https://github.com/sadpig70/Clearstra/actions/workflows/ci.yml)
+
 # Clearstra
 
 > **희소·취약·임계 자산의 권리/용량/선물을 결정론적으로 청산하는 거래소 플랫폼.**
@@ -67,7 +69,13 @@ Clearstra/
 
 `cryo-futures`(레퍼런스) · `reserve-flow`(Attestra 앵커) · `cold-capacity` · `failure-futures` ·
 `refusal-option` · `exclusive-grant` · `quadratic-carbon` · `buy-bloc` · `shock-rehearsal` ·
-`retrofit-receivable`. 각 팩은 `source_project`로 원본 저장소(github.com/sadpig70/*)를 추적한다.
+`retrofit-receivable`.
+
+**추가 흡수 마켓 (총 11종):** `agent-ops` — AgentMesh(에이전트 운영 비용). **machine-aware routing**이
+AgentMesh는 verdict 게이트가 아니라 cost pricing(`units × unit_cost`) + rollup, 즉 Clearstra의 `price`
+machine임을 실코드로 판정해 여기로 라우팅했다(원본과 parity 테스트 동봉).
+
+각 팩은 `source_project`로 원본 저장소(github.com/sadpig70/*)를 추적한다.
 
 ## 결정론 경계
 
