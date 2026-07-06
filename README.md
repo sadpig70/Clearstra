@@ -55,15 +55,12 @@ Clearstra/
 │   ├── WORKPLAN-Clearstra.md      #   실행 계획 (POLICY + 위상정렬 + 검증 게이트)
 │   └── status-Clearstra.json      #   노드별 상태
 ├── .pgxf/INDEX-Clearstra.json     # PGXF 인덱스 (32 노드 · decomposed 크로스ref)
-├── clearstra_core/                # ★ 커널 — 결정론 청산 substrate (stdlib only) [예정]
-│   ├── order.py · pricing.py · clearing.py · settlement.py · shock.py
+├── clearstra_core/                # ★ 커널 — 결정론 청산 substrate (stdlib only)│   ├── order.py · pricing.py · clearing.py · settlement.py · shock.py
 │   ├── ledger.py · fingerprint.py · determinism.py · attestra_bridge.py
-├── clearstra_markets/             # ★ 마켓 팩 — 각 HELIX 시장의 공식 계약 [예정]
-│   └── cryo_futures/ (레퍼런스) · reserve_flow/ (Attestra 앵커) · ...
-├── schemas/ · cli.py · tests/     # [예정]
-```
+├── clearstra_markets/             # ★ 마켓 팩 — 각 HELIX 시장의 공식 계약│   └── cryo_futures/ (레퍼런스) · reserve_flow/ (Attestra 앵커) · ...
+├── schemas/ · cli.py · tests/     #```
 
-> 현재 상태: **설계 완료(design phase)**. 코드 노드는 WORKPLAN Phase 1부터 구현 예정.
+> 현재 상태: **구현·검증 완료**. 커널 + 11 마켓 팩 전부 구현, 결정론 unittest + parity + determinism boundary 통과, CI green.
 
 ## 1차 마켓 팩 (10종)
 
