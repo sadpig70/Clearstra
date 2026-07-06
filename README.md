@@ -11,6 +11,8 @@ ExclusiveGrantWarrant·QuadraticCarbonFund·BuyBloc·RRE)이 도메인 공식만
 구현해 왔는데, Clearstra는 그 기계를 커널로 한 번만 정의하고 각 시장을 **마켓 팩**으로 얹는다.
 
 ## 계보 & Attestra 상보성
+> 🔗 **생태계 데모**: [stra-demo](https://github.com/sadpig70/stra-demo) — route → clear → certify → attest가 한 결정을 함께 처리하는 end-to-end 데모.
+
 
 Clearstra는 [HELIX](../README.md)의 자식 프로젝트이며 **독립 저장소**로 자립 구동한다.
 
