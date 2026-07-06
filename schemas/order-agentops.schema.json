@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgentMesh operation order",
+  "type": "object",
+  "required": [
+    "op_type",
+    "units"
+  ],
+  "properties": {
+    "op_type": {
+      "type": "string"
+    },
+    "units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "operator": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    }
+  }
+}

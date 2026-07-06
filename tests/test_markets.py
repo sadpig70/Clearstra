@@ -13,6 +13,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXPECTED = {
     "cryo-futures", "reserve-flow", "cold-capacity", "failure-futures", "refusal-option",
     "exclusive-grant", "quadratic-carbon", "buy-bloc", "shock-rehearsal", "retrofit-receivable",
+    "agent-ops",   # BUILD_ON_PLATFORM: compat-mesh cluster (AgentMesh) -> Clearstra price market
 }
 
 
