@@ -68,9 +68,11 @@ Clearstra/
 `refusal-option` · `exclusive-grant` · `quadratic-carbon` · `buy-bloc` · `shock-rehearsal` ·
 `retrofit-receivable`.
 
-**추가 흡수 마켓 (총 11종):** `agent-ops` — AgentMesh(에이전트 운영 비용). **machine-aware routing**이
-AgentMesh는 verdict 게이트가 아니라 cost pricing(`units × unit_cost`) + rollup, 즉 Clearstra의 `price`
-machine임을 실코드로 판정해 여기로 라우팅했다(원본과 parity 테스트 동봉).
+**추가 흡수 마켓 (총 12종):** `agent-ops`(AgentMesh 에이전트 운영 비용) · `mineral-shock`(MineralShock
+전략광물 reserve pricing + 공급쇼크 rehearse). **machine-aware routing**이 실코드로 판정: AgentMesh는
+verdict 게이트가 아니라 cost pricing(`units × unit_cost`) + rollup = Clearstra `price`, MineralShock은
+reserve-right/refusal-option 가치평가 + shock 생존일수 = Clearstra `price`+`rehearse`(커널 pricing
+primitive가 애초에 MineralShock에서 파생). 각 마켓은 원본과 parity 테스트를 동봉한다.
 
 각 팩은 `source_project`로 원본 저장소(github.com/sadpig70/*)를 추적한다.
 
