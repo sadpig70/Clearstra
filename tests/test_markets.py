@@ -14,6 +14,7 @@ EXPECTED = {
     "cryo-futures", "reserve-flow", "cold-capacity", "failure-futures", "refusal-option",
     "exclusive-grant", "quadratic-carbon", "buy-bloc", "shock-rehearsal", "retrofit-receivable",
     "agent-ops",   # BUILD_ON_PLATFORM: compat-mesh cluster (AgentMesh) -> Clearstra price market
+    "mineral-shock",  # BUILD_ON_PLATFORM: MineralShock reserve pricing + supply-shock rehearsal
 }
 
 

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MineralShock reserve/refusal order",
+  "type": "object",
+  "properties": {
+    "kind": {"type": "string", "enum": ["reserve_right", "refusal_option"]},
+    "mineral": {"type": "string"},
+    "stockpile_tonnes": {"type": "number", "minimum": 0},
+    "criticality": {"type": "number", "minimum": 0, "maximum": 1},
+    "daily_demand": {"type": "number", "minimum": 0},
+    "refusal_capacity_tonnes": {"type": "number", "minimum": 0},
+    "threat_level": {"type": "number", "minimum": 0, "maximum": 1},
+    "mineral_value": {"type": "number", "minimum": 0}
+  }
+}
